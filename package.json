@@ -1,6 +1,6 @@
 {
   "name": "wt-fragment",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Windows Terminal Fragments injector",
   "repository": "r3tard/wt-fragment",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "prepublish": "npm run build",
     "release": "standard-version && git push --follow-tags && npm publish",
     "test": "echo \"No test specified\"",
-    "postinstall": "node ./copyfragment || exit 0"
+    "postinstall": "node ./bin/copyfragment || exit 0"
   },
   "keywords": [
     "wt",
