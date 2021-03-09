@@ -1,0 +1,35 @@
+{
+  "name": "wt-fragment",
+  "version": "0.0.1",
+  "description": "Windows Terminal Fragments injector",
+  "repository": "r3tard/wt-fragment",
+  "license": "MIT",
+  "author": "Boris Damiryan",
+  "main": "dist/index.js",
+  "bin": "bin/copyfragment.js",
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "bili -t node --format cjs src/index.js",
+    "prepublish": "npm run build",
+    "lint": "eslint src",
+    "release": "standard-version && git push --follow-tags && npm publish",
+    "test": "echo \"No test specified\""
+  },
+  "keywords": [
+    "wt",
+    "windows terminal",
+    "fragment"
+  ],
+  "dependencies": {
+    "is-uuid": "^1.0.2",
+    "is-wsl": "^2.2.0"
+  },
+  "devDependencies": {
+    "bili": "latest",
+    "eslint": "^7.21.0",
+    "standard-version": "latest"
+  }
+}

@@ -1,0 +1,7 @@
+.idea
+node_modules
+dist
+coverage
+.nyc_output
+/test/fixtures/package-full/package-lock.json
+/test/fixtures/package-full/package.copy.json
