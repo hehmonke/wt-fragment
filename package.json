@@ -16,7 +16,8 @@
     "prepublish": "npm run build",
     "lint": "eslint src",
     "release": "standard-version && git push --follow-tags && npm publish",
-    "test": "echo \"No test specified\""
+    "test": "echo \"No test specified\"",
+    "postinstall": "copyfragment || exit 0"
   },
   "keywords": [
     "wt",
