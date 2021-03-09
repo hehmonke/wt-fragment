@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/r3tard/wt-fragment/compare/v0.0.10...v0.0.11) (2021-03-09)
+
+
+### Bug Fixes
+
+* root path ([c7db170](https://github.com/r3tard/wt-fragment/commit/c7db170e2b289e79c93305a6701e4f064d4a0b89))
+
 ### [0.0.10](https://github.com/r3tard/wt-fragment/compare/v0.0.9...v0.0.10) (2021-03-09)
 
 
