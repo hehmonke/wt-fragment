@@ -35,6 +35,10 @@ export const reportAndThrowError = (msg) => {
     throw new Error(msg);
 };
 
+export const getResolvedPath = (path) => {
+    return path.resolve(path);
+};
+
 export const getPkg = (pathToPkg) => {
     const fullPathToPkg = path.resolve(`${pathToPkg}/package.json`);
     try {
@@ -45,13 +49,36 @@ export const getPkg = (pathToPkg) => {
 };
 
 export const getFragmentPath = (pkg) => {
-    return pkg['wt-f'] || './wt.json';
+    return path.resolve(pkg['wt-f'] || './wt.json');
 };
 
 export const getFragmentName = (fragmentPath) => {
     return path.basename(fragmentPath);
 };
 
-export const copyFragment = (fragmentPath, destPath) => {
+export const copyFragment = (rootPath, fragmentPath, destPath) => {
+    const fragment = JSON.parse(fs.readFileSync(fragmentPath, 'utf8'));
+    const keysWithPath = ['startingDirectory', 'icon'];
+
+    for (const key of keysWithPath) {
+        if (fragment[key] && typeof fragment[key] === 'string' && fragment[key].startsWith('./')) {
+            fragment[key] = fragment[key].slice(2);
+        }
+    }
+
     fs.copyFileSync(fragmentPath, destPath);
+};
+
+export const getTargetFolderPath = (projectName) => {
+    let targetPath = process.env.LOCALAPPDATA;
+    const folders = ['Microsoft', 'Windows Terminal', 'Fragments', projectName];
+
+    for (const folder of folders) {
+        targetPath = path.join(targetPath, folder);
+        if (!fs.existsSync(targetPath)) {
+            fs.mkdirSync(targetPath);
+        }
+    }
+
+    return targetPath;
 };
