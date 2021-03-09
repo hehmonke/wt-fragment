@@ -58,15 +58,20 @@ export const getFragmentName = (fragmentPath) => {
 
 export const copyFragment = (rootPath, fragmentPath, destPath) => {
     const fragment = JSON.parse(fs.readFileSync(fragmentPath, 'utf8'));
-    const keysWithPath = ['startingDirectory', 'icon'];
 
-    for (const key of keysWithPath) {
-        if (fragment[key] && typeof fragment[key] === 'string' && fragment[key].startsWith('./')) {
-            fragment[key] = fragment[key].slice(2);
+    if (Array.isArray(fragment.profiles)) {
+        for (const profile of fragment.profiles) {
+            const keysWithPath = ['startingDirectory', 'icon'];
+
+            for (const key of keysWithPath) {
+                if (profile[key] && typeof profile[key] === 'string' && profile[key].startsWith('./')) {
+                    profile[key] = profile[key].slice(2);
+                }
+            }
         }
     }
 
-    fs.copyFileSync(fragmentPath, destPath);
+    fs.writeFileSync(destPath, JSON.stringify(fragment));
 };
 
 export const getTargetFolderPath = (projectName) => {
