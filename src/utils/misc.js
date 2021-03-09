@@ -35,8 +35,8 @@ export const reportAndThrowError = (msg) => {
     throw new Error(msg);
 };
 
-export const getResolvedPath = (path) => {
-    return path.resolve(path);
+export const getResolvedPath = (rootPath) => {
+    return path.resolve(rootPath);
 };
 
 export const getPkg = (pathToPkg) => {
