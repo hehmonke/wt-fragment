@@ -1,6 +1,6 @@
 {
   "name": "wt-fragment",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Windows Terminal Fragments injector",
   "repository": "r3tard/wt-fragment",
   "license": "MIT",
