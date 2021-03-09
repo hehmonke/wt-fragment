@@ -49,7 +49,7 @@ export const getPkg = (pathToPkg) => {
 };
 
 export const getFragmentPath = (pkg) => {
-    return path.resolve(pkg['wt-f'] || './wt.json');
+    return path.resolve(pkg['wt-f'] || './.wt.json');
 };
 
 export const getFragmentName = (fragmentPath) => {
