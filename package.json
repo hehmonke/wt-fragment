@@ -13,11 +13,11 @@
   ],
   "scripts": {
     "build": "bili -t node --format cjs src/index.js",
-    "prepublish": "npm run build",
     "lint": "eslint src",
+    "prepublish": "npm run build",
     "release": "standard-version && git push --follow-tags && npm publish",
     "test": "echo \"No test specified\"",
-    "postinstall": "copyfragment || exit 0"
+    "postinstall": "node ./copyfragment || exit 0"
   },
   "keywords": [
     "wt",
