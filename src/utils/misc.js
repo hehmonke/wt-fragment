@@ -65,7 +65,7 @@ export const copyFragment = (rootPath, fragmentPath, destPath) => {
 
             for (const key of keysWithPath) {
                 if (profile[key] && typeof profile[key] === 'string' && profile[key].startsWith('./')) {
-                    profile[key] = profile[key].slice(2);
+                    profile[key] = path.join(rootPath, profile[key].slice(2));
                 }
             }
         }
